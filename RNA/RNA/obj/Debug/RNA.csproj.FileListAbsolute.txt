@@ -1,0 +1,6 @@
+C:\Users\Alber.LAPTOP-V7146KHK\Documents\Cristhian\Capitulo - IA\RNA\RNA\bin\Debug\RNA.exe.config
+C:\Users\Alber.LAPTOP-V7146KHK\Documents\Cristhian\Capitulo - IA\RNA\RNA\bin\Debug\RNA.exe
+C:\Users\Alber.LAPTOP-V7146KHK\Documents\Cristhian\Capitulo - IA\RNA\RNA\bin\Debug\RNA.pdb
+C:\Users\Alber.LAPTOP-V7146KHK\Documents\Cristhian\Capitulo - IA\RNA\RNA\obj\Debug\RNA.csprojResolveAssemblyReference.cache
+C:\Users\Alber.LAPTOP-V7146KHK\Documents\Cristhian\Capitulo - IA\RNA\RNA\obj\Debug\RNA.exe
+C:\Users\Alber.LAPTOP-V7146KHK\Documents\Cristhian\Capitulo - IA\RNA\RNA\obj\Debug\RNA.pdb
