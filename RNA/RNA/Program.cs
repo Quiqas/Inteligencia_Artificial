@@ -25,9 +25,13 @@ namespace RNA{
 
             bool aprendiendo = true;
 
-            int salidaEntera;
+            int salidaEntera, iteracion = 0;
+
+            double tasaAprende = 0.3;
 
             while (aprendiendo){ //Hasta que aprenda la tabla AND
+
+                iteracion++; 
 
                 aprendiendo = false;
 
@@ -39,20 +43,22 @@ namespace RNA{
 
                     if (salidaReal > 0) salidaEntera = 1; else salidaEntera = 0; //Transforma a valores 0 o 1
 
-                    if (salidaEntera != datos[cont, 2]){ //Si la salida no coincide con lo esperado, cambia los pesos al azar
+                    int error = datos[cont, 2] - salidaEntera;
 
-                        pesos[0] = azar.NextDouble() - azar.NextDouble();
-
-                        pesos[1] = azar.NextDouble() - azar.NextDouble();
-
-                        pesos[2] = azar.NextDouble() - azar.NextDouble();
-
+                    if (error != 0)
+                    { //Si la salida no coincide con lo esperado, cambia los pesos con la fórmula de Frank Rosenblatt
+                        pesos[0] += tasaAprende * error * datos[cont, 0];
+                        pesos[1] += tasaAprende * error * datos[cont, 1];
+                        pesos[2] += tasaAprende * error * 1;
                         aprendiendo = true; //Y sigue buscando
-
-                        Console.WriteLine("Peso 1: "+ pesos[0].ToString() + " Peso 2: " + pesos[1].ToString() + " Peso 3: " + pesos[2].ToString());
                     }
                 }
             }
+
+            Console.WriteLine("Iteraciones: " + iteracion.ToString());
+            Console.WriteLine("Peso 1: " + pesos[0].ToString());
+            Console.WriteLine("Peso 2: " + pesos[1].ToString());
+            Console.WriteLine("Peso 3: " + pesos[2].ToString());
 
             for (int cont = 0; cont <= 3; cont++){ //Muestra el perceptron con la tabla AND aprendida
 
@@ -64,7 +70,7 @@ namespace RNA{
                 datos[cont, 2].ToString() + " perceptron: " + salidaEntera.ToString());
 
             }
-            Console.ReadLine();
+            Console.ReadKey();
         }
     }
 }
