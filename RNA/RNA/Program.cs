@@ -27,7 +27,7 @@ namespace RNA{
 
             int salidaEntera, iteracion = 0;
 
-            double tasaAprende = 0.3;
+            double tasaAprende = 0.145686;
 
             while (aprendiendo){ //Hasta que aprenda la tabla AND
 
@@ -45,13 +45,18 @@ namespace RNA{
 
                     int error = datos[cont, 2] - salidaEntera;
 
-                    if (error != 0)
-                    { //Si la salida no coincide con lo esperado, cambia los pesos con la fórmula de Frank Rosenblatt
+                    if (error != 0){ //Si la salida no coincide con lo esperado, cambia los pesos con la fórmula de Frank Rosenblatt
                         pesos[0] += tasaAprende * error * datos[cont, 0];
                         pesos[1] += tasaAprende * error * datos[cont, 1];
                         pesos[2] += tasaAprende * error * 1;
                         aprendiendo = true; //Y sigue buscando
+
+                  
+                        
                     }
+                    Console.WriteLine("Peso " + (1) + ": " + tasaAprende + " * " + error + " * " + datos[cont, 0] + " = " + pesos[0].ToString() + " en la iteracion: " + iteracion + " La Salida Real es: " + datos[cont, 2]);
+                    Console.WriteLine("Peso " + (2) + ": " + tasaAprende + " * " + error + " * " + datos[cont, 1] + " = " + pesos[1].ToString() + " en la iteracion: " + iteracion + " La Salida Real es: " + datos[cont, 2]);
+                    Console.WriteLine("Peso " + (3) + ": " + tasaAprende + " * " + error + " * " + 1 + " = " + pesos[2].ToString() + " en la iteracion: " + iteracion + " La Salida Real es: " + datos[cont, 2]  +  "\n");
                 }
             }
 
