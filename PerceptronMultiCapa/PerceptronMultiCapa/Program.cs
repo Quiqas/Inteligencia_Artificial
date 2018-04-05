@@ -17,8 +17,9 @@ namespace PerceptronMultiCapa{
             U = azar.NextDouble();
         }
         public double calculaSalida(double E1, double E2){
-            double S = 0;
-            //Se hace una operación aquí
+            double valor, S;
+            valor = E1 * P1 + E2 * P2 + 1 * U;
+            S = 1 / (1 + Math.Exp(-valor));
             return S;
         }
     }
